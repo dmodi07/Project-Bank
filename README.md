@@ -1,9 +1,9 @@
 # Final Project Report
 
-* Student Name:
-* Github Username:
-* Semester:
-* Course:
+* Student Name: Dipen Modi
+* Github Username: dmodi07
+* Semester: Fall 2025
+* Course: CS-5001
 
 
 
