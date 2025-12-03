@@ -39,8 +39,7 @@ def operations():
     print(f"\nFinal balance: ${john_account.check_balance():.2f}")
 
 def main():
-    account = 
-
+    pass
 
 
 
