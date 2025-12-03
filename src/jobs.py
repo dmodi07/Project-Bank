@@ -1,4 +1,20 @@
 # jobs.py
+
+# Characters:
+#1 Felonious Gru
+#2 Joseph Nefario
+#3 Stuart D'Minion
+#4 Dave D'Minion
+#5 Bob D'Minion
+#6 Vector Perkins
+#7 El Macho
+#8 Scarlet Overkill
+#9 Maxime Le Mal
+#10 Jean Clawed
+#11 Wild Knuckles
+#12 Eduardo Perez
+
+
 class BankAccount:
     """A class that defines what attributes a bank account should have and defines what it can do."""
 
