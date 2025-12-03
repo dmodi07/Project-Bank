@@ -1,0 +1,85 @@
+{"grufru": {
+   "username": "grufru",
+    "password": "Moon2010!",
+    "name": "Felonious Gru",
+    "account_number": "BE001",
+    "balance": 250000
+  }, 
+  "nefario": {
+   "username": "nefario",
+    "password": "Fr33z3R@y",
+    "name": "Joseph Nefario",
+    "account_number": "BE002",
+    "balance": 45000
+  }, 
+  "stuartbovesbanana": {
+   "username": "stuartbovesbanana",
+    "password": "99banana!",
+    "name": "Stuart D'Minion",
+    "account_number": "BE003",
+    "balance": 9
+  }, 
+  "dave": {
+   "username": "dave",
+    "password": "laserb00m!",
+    "name": "Dave D'Minion",
+    "account_number": "BE004",
+    "balance": 8
+  }, 
+  "bobfeedtim": {
+   "username": "bobfeedtim",
+    "password": "King_B0B",
+    "name": "Bob D'Minion",
+    "account_number": "BE005",
+    "balance": 7
+  }, 
+  "richvic": {
+   "username": "richvic",
+    "password": "Squ1d_L@uncher!",
+    "name": "Vector Perkins",
+    "account_number": "BE006",
+    "balance": 850000
+  }, 
+  "macho007": {
+   "username": "macho007",
+    "password": "Ch1ck3n_P0w3r!",
+    "name": "El Macho",
+    "account_number": "BE007",
+    "balance": 400000
+  }, 
+  "scarletdonplay": {
+   "username": "scarletdonplay",
+    "password": "Cr0wn_Leg@ci!",
+    "name": "Scarlet Overkill",
+    "account_number": "BE008",
+    "balance": 750000
+  }, 
+  "maxlemal": {
+   "username": "maxlemal",
+    "password": "Cockroach_K1ng",
+    "name": "Maxime Le Mal",
+    "account_number": "BE009",
+    "balance": 300000
+  }, 
+  "jeandbean": {
+   "username": "jeandbean",
+    "password": "C1aw_&_0rder!",
+    "name": "Jean Clawed",
+    "account_number": "BE010",
+    "balance": 15000
+  }, 
+  "knuckles": {
+   "username": "knuckles",
+    "password": "Veg@sHeist_#12",
+    "name": "Wild Knuckles",
+    "account_number": "BE011",
+    "balance": 180000
+  }, 
+    "eduardo12": {
+    "username": "eduardo12",
+    "password": "S3cr3t_Account",
+    "name": "Eduardo Perez",
+    "account_number": "BE012",
+    "balance": 120000
+  }
+}
