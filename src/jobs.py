@@ -50,6 +50,17 @@ if __name__ == "__main__":
     
     # Test one account
     gru = accounts["grufru"]
-    print(f"Name: {gru.name}")
+    print(f"Gru's balance before: ${gru.balance}")
+    gru.deposit(10000)
+    print(f"Gru's balance after: ${gru.balance}")
+    
+    # Save the changes
+    save_accounts(accounts)
+    print("Saved changes to clients.json")
+    
+    # Load again to verify it was saved
+    accounts2 = load_accounts()
+    gru2 = accounts2["grufru"]
+    print(f"Gru's balance after reloading: ${gru2.balance}")
 
 
