@@ -5,9 +5,8 @@ from bank_account import BankAccount
 
 def load_accounts():
     "Loads accounts from clients.json and returns dictionary of BankAccount objects"
-    file_path = '/Users/dmodi07/Desktop/Learning/NEU/5001/Projects/finalproject-dmodi07/src/clients.json'
     try:
-        with open(file_path, 'r') as file:
+        with open('clients.json', 'r') as file:
             data = json.load(file)
 
         accounts = {}
@@ -28,7 +27,18 @@ def load_accounts():
 
 def save_accounts(accounts):
     "Saves any changes made to the dictionary back in the customer database file"
-    try:
+    data = {}
+    for username, account in accounts.items():
+        data[username] = {
+            "username": account.username,
+            "password": account.password,
+            "name": account.name,
+            "account_number": account.account,
+            "balance": account.balance
+        }
+    
+    with open('clients.json', 'w') as file:
+        json.dump(data, file, indent = 2)
         
 
 

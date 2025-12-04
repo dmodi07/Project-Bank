@@ -17,6 +17,7 @@ class BankAccount:
         if amount <= 0:
             raise ValueError("Deposit amount must be positive. Please try again.")
         self.balance += amount
+        # print(f"Deposited ${amount}. Current balance: {self.balance}")
 
     def withdraw(self, amount):
         "Withdraws moeny from the account"
@@ -28,6 +29,7 @@ class BankAccount:
             raise ValueError(f"Insufficient funds. Balance: ${self.balance:.2f}, "
                              f"Attempted withdrawal: ${amount:.2f}")
         self.balance -= amount
+        # print(f"Withdrawal ${amount} successful! Remaining balance: {self.balance}")
 
     def check_balance(self):
         return self.balance

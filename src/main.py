@@ -1,18 +1,5 @@
 # main.py
 from jobs import BankAccount
-# Characters:
-#1 Felonious Gru
-#2 Joseph Nefario
-#3 Stuart D'Minion
-#4 Dave D'Minion
-#5 Bob D'Minion
-#6 Vector Perkins
-#7 El Macho
-#8 Scarlet Overkill
-#9 Maxime Le Mal
-#10 Jean Clawed
-#11 Wild Knuckles
-#12 Eduardo Perez
 
 welcome_message = print("""
 \nWelcome to the Bank of Evil!
@@ -24,7 +11,7 @@ welcome_message = print("""
 
 
 def main():
-    account = BankAccount("John Smith", "AC001", 1000)
+    account = BankAccount("johns", "JSmith@01", "John Smith", "AC001", 1000)
 
     while True:
         print(welcome_message)
@@ -59,7 +46,7 @@ def main():
 
         else:
             print("Invalid choice. Please try again.")
-    operations()
+
 
 
 if __name__ == '__main__':
