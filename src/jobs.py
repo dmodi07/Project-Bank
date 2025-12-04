@@ -68,7 +68,7 @@ def validate_password(password):
 
     if not has_upper:
         raise ValueError("Password must contain at least one uppercase letter.")
-    
+
     if not has_special:
         raise ValueError("Password must contain at least one special character (!@#$%^&*, etc.)")
 
@@ -88,7 +88,7 @@ if __name__ == "__main__":
     # Test one account
     gru = accounts["grufru"]
     print(f"Gru's balance before: ${gru.balance}")
-    gru.deposit(10000)
+    gru.withdraw(20000)
     print(f"Gru's balance after: ${gru.balance}")
     
     # Save the changes
@@ -99,5 +99,11 @@ if __name__ == "__main__":
     accounts2 = load_accounts()
     gru2 = accounts2["grufru"]
     print(f"Gru's balance after reloading: ${gru2.balance}")
+
+    # password check:
+    while True:
+        password = input("Please enter a password:")
+        if validate_password(password) == True:
+            break
 
 
