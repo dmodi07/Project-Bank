@@ -41,7 +41,44 @@ def save_accounts(accounts):
         json.dump(data, file, indent = 2)
         
 
+def validate_password(password):
+    """Validates password meets complexity requirements
+        Returns true if valid, raises ValueError if not."""
+    
+    has_upper = False
+    has_lower = False
+    has_number = False
+    has_special = False
 
+    if len(password) < 6:
+        raise ValueError("Password must be at least 6 characters long.")
+
+    for char in password:
+        if char.isupper():
+            has_upper = True
+
+        if char.islower():
+            has_lower = True          
+
+        if char.isnumeric():
+            has_number = True 
+        
+        if not char.isalnum():
+            has_special = True
+
+    if not has_upper:
+        raise ValueError("Password must contain at least one uppercase letter.")
+    
+    if not has_special:
+        raise ValueError("Password must contain at least one special character (!@#$%^&*, etc.)")
+
+    if not has_number:    
+        raise ValueError("Password must contain at least one number.")
+    
+    if not has_lower:
+        raise ValueError("Password must contain at least one lowercase letter.")
+
+    return True
 
 
 if __name__ == "__main__":
