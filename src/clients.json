@@ -15,7 +15,7 @@
   },
   "stuartbovesbanana": {
     "username": "stuartbovesbanana",
-    "password": "99banana!",
+    "password": "99Banana!",
     "name": "Stuart D'Minion",
     "account_number": "BE003",
     "balance": 9.0
@@ -82,5 +82,12 @@
     "name": "Eduardo Perez",
     "account_number": "BE012",
     "balance": 120000.0
+  },
+  "UnholyNun": {
+    "username": "UnholyNun",
+    "password": "Vicious@6!",
+    "name": "Nun Chuck",
+    "account_number": "BE013",
+    "balance": 2500.0
   }
 }
