@@ -4,6 +4,7 @@ from bank_account import BankAccount
 
 # constants:
 BANK_ACRONYM = "BE"
+NEW_ACCOUNT_BALANCE = 0.0
 
 
 def load_accounts():
@@ -106,29 +107,118 @@ def generate_account_number(accounts):
     next_account_number = BANK_ACRONYM + str(next_number).zfill(3)
     return next_account_number
 
+
+def authenticate_user(username: str, password: str, accounts: dict):
+    """Checks if a username exists in file and authenticates access if password matches.
+
+    Args:
+        username (str): This is user's login id/username
+        password (str): This is their password
+        accounts (dict): This is dictionary of BankAccount objects.
+    
+    Returns: 
+        BankAccount (If the username and password matches with user's information then it returns the BankAccount object. Else, it returns None.)
+    """
+    if username in accounts:                        # checks if username exists in dictionary.
+        user_account = accounts[username]           # selects the object key (username)
+        if user_account.password == password:       # checks if the password matches.
+            return user_account                     # grants access to user's account.
+        else:
+            return None         # password does not match.
+    else:
+        return None             # username does not exist in Dictionary.
+
+
+def create_new_account(username: str, password: str, name: str, accounts: dict) -> bool:
+    """Creates a new bank account for the new client.
+
+    Args:
+        username (str): desired unique username.
+        password (str): password that must certain requirements.
+        name (str): full name of account holder.
+        accounts (dict): Dictionary of existing BankAccount objects.
+
+    Returns:
+        bool: True if account created successfully, False otherwise.
+    """
+    # checking if username exists in the dictionary already.
+    if username in accounts:
+        return False
+    
+    # if it doesn't exist, validating if password meets requirements.
+    try:
+        validate_password(password)  
+    except ValueError: 
+        return False
+    
+    account_number = generate_account_number(accounts)
+    new_account = BankAccount(username, password, name, account_number, NEW_ACCOUNT_BALANCE)
+
+    # add new account to dictionary
+    accounts[username] = new_account
+
+    # save new account to database
+    save_accounts(accounts)
+
+    return True
+
+
 if __name__ == "__main__":
     accounts = load_accounts()
     print(f"Loaded {len(accounts)} accounts")
     
     # Test one account
-    gru = accounts["grufru"]
-    print(f"Gru's balance before: ${gru.balance}")
-    gru.withdraw(20000)
-    print(f"Gru's balance after: ${gru.balance}")
+    # gru = accounts["grufru"]
+    # print(f"Gru's balance before: ${gru.balance}")
+    # gru.deposit(10000)
+    # print(f"Gru's balance after: ${gru.balance}")
     
     # Save the changes
     save_accounts(accounts)
     print("Saved changes to clients.json")
     
     # Load again to verify it was saved
-    accounts2 = load_accounts()
-    gru2 = accounts2["grufru"]
-    print(f"Gru's balance after reloading: ${gru2.balance}")
+    # accounts2 = load_accounts()
+    # gru2 = accounts2["grufru"]
+    # print(f"Gru's balance after reloading: ${gru2.balance}")
 
     # password check:
-    while True:
-        password = input("Please enter a password:")
-        if validate_password(password) == True:
-            break
+    # while True:
+    #     password = input("Please enter a password:")
+    #     if validate_password(password) == True:
+    #         break
+    
+    # check user_authentication:
+    # print(authenticate_user("grufru", "Moon2010!", accounts))
 
+    print("\n=== Testing create_new_account ===")
+    
+    accounts = load_accounts()
+    print(f"Starting with {len(accounts)} accounts\n")
+    
+    # Test 1: Create valid account
+    print("Test 1: Creating new account")
+    success = create_new_account("villain_new", "EvilPass123!", "New Villain", accounts)
+    if success:
+        print("✅ Account created successfully!")
+        print(f"New account count: {len(accounts)}")
+        print(f"New account number: {accounts['villain_new'].account}\n")
+    else:
+        print("❌ Failed\n")
+    
+    # Test 2: Try duplicate username
+    print("Test 2: Duplicate username")
+    success = create_new_account("grufru", "AnyPass123!", "Fake Gru", accounts)
+    if success:
+        print("⚠️ Should have failed - username exists!\n")
+    else:
+        print("✅ Correctly rejected duplicate username\n")
+    
+    # Test 3: Invalid password
+    print("Test 3: Invalid password")
+    success = create_new_account("another_user", "weak", "Another User", accounts)
+    if success:
+        print("⚠️ Should have failed - weak password!\n")
+    else:
+        print("✅ Correctly rejected weak password\n")
 

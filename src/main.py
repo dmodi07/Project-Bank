@@ -8,6 +8,18 @@ welcome_message = print("""
 2. Withdraw money    4. Exit
 """)
 
+# must load database first -
+
+# option to login to account -
+username = input("Username: ")
+password = input("Password: ")
+
+# verifying login details -
+user_account = authenticate_user(username, password, accounts)
+if user_account:
+    print(f"Login successful! Welcome {user_account.name}\n")
+else:
+    print("Login failed! Please try again.\n")
 
 
 def main():
