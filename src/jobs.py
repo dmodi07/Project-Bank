@@ -2,6 +2,9 @@
 import json
 from bank_account import BankAccount
 
+# constants:
+BANK_ACRONYM = "BE"
+
 
 def load_accounts():
     "Loads accounts from clients.json and returns dictionary of BankAccount objects"
@@ -80,6 +83,28 @@ def validate_password(password):
 
     return True
 
+
+def generate_account_number(accounts):
+    """Generates the next sequential account number that represents the account.
+
+    Args:
+        accounts (dict): Dictionary of BankAccount objects (from load_accounts).
+
+    Returns:
+        new sequential account number that follows from the most recent account number.
+    """
+    acc_numbers = []
+
+    for user, account_info in accounts.items():
+        account_number = account_info.account
+        number_str = account_number[len(BANK_ACRONYM):]
+        number_int = int(number_str)
+        acc_numbers.append(number_int)
+    
+    latest = max(acc_numbers)
+    next_number = latest + 1
+    next_account_number = BANK_ACRONYM + str(next_number).zfill(3)
+    return next_account_number
 
 if __name__ == "__main__":
     accounts = load_accounts()
