@@ -12,7 +12,7 @@ This module contains six helper functions to run the banking application:
     5. authenticate_user(username: str, password: str, accounts: dict)
     6. create_new_account(username: str, password: str, name: str, accounts: dict)
 
-This module handles reading content from database, saving content to database, account number generation for any new clients, banking access upon user authentication, password validation upon login attempts and also the ability to create a new account for new clients. 
+This module handles reading content from database, saving content to database, account number generation for any new clients, banking access upon user authentication, password validation upon login attempts and also the ability to create a new account for new clients.
 """
 import json
 from bank_account import BankAccount
@@ -61,7 +61,7 @@ def load_accounts() -> dict:
         return accounts
 
     except FileNotFoundError:       # returning empty dictionary in case file doesn't exist.
-        return {}  
+        return {}
 
 
 def save_accounts(accounts: dict) -> None:
@@ -79,7 +79,7 @@ def save_accounts(accounts: dict) -> None:
     data = {}
 
     # converting each BankAccount object back to original dictionary format.
-    ## key, value = username, account (just fyi). 
+    # key, value = username, account (just fyi).
     for username, account in accounts.items():
         data[username] = {
             "username": account.username,
@@ -91,8 +91,8 @@ def save_accounts(accounts: dict) -> None:
 
     # copies the updated database (from accounts) back to clients.json file.
     with open('clients.json', 'w') as file:
-        json.dump(data, file, indent = 2)
-        
+        json.dump(data, file, indent=2)
+
 
 def validate_password(password: str) -> bool:
     """Validates password meets all complexity requirements, and
@@ -162,10 +162,10 @@ def validate_password(password: str) -> bool:
             has_upper = True
 
         if char.islower():          # includes lower
-            has_lower = True          
+            has_lower = True
 
         if char.isnumeric():        # includes number
-            has_number = True 
+            has_number = True
 
         if not char.isalnum():      # includes special character
             has_special = True
@@ -179,7 +179,7 @@ def validate_password(password: str) -> bool:
 
     if not has_number:         # no number char
         raise ValueError("Password must contain at least one number.")
-    
+
     if not has_lower:          # no lower char
         raise ValueError("Password must contain at least one lowercase letter.")
 
@@ -231,7 +231,7 @@ def generate_account_number(accounts):
 
         # adding numbers to the empty list to find maximum number in the sequence.
         acc_numbers.append(number_int)
-    
+
     latest = max(acc_numbers)       # finds maximum number.
     next_number = latest + 1        # adds 1 to create the next number.
 
@@ -241,16 +241,16 @@ def generate_account_number(accounts):
 
 
 def authenticate_user(username: str, password: str, accounts: dict):
-    """Checks if a username exists in file and 
+    """Checks if a username exists in file and
     authenticates access if password matches with that stored in database.
 
     Args:
         username (str): This is user's login id/username.
         password (str): This is user's attempted password.
         accounts (dict): This is dictionary of BankAccount objects.
-    
-    Returns: 
-        BankAccount or None: 
+
+    Returns:
+        BankAccount or None:
         Returns the BankAccount object if the username and password matches with user's information. Else, it returns None.
 
     Examples:
@@ -306,13 +306,13 @@ def create_new_account(username: str, password: str, name: str, accounts: dict) 
     # checking if username exists in the dictionary already.
     if username in accounts:
         return False
-    
+
     # if it doesn't exist, validating if password meets requirements.
     try:
         validate_password(password)     # calling function.
-    except ValueError: 
+    except ValueError:
         return False
-    
+
     account_number = generate_account_number(accounts)      # calling function.
     new_account = BankAccount(username, password, name, account_number, NEW_ACCOUNT_BALANCE)
 
@@ -327,4 +327,4 @@ def create_new_account(username: str, password: str, name: str, accounts: dict) 
 
 if __name__ == "__main__":
     import doctest
-    doctest.testmod(verbose = False)
+    doctest.testmod(verbose=False)
