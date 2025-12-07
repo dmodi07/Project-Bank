@@ -10,7 +10,7 @@ This file contains class and it's functions that will be used to deposit money i
 
 class BankAccount:
     """BankAccount defines what attributes a bank account should have and what it can do.
-    
+
     Attributes:
         username, password, name, account, balance
 
@@ -47,7 +47,6 @@ class BankAccount:
         self.account = account_number
         self.balance = float(account_balance)
 
-
     def check_balance(self) -> float:
         """Checks balance in user's bank account.
 
@@ -64,7 +63,6 @@ class BankAccount:
             100.0
         """
         return self.balance
-
 
     def deposit(self, amount: float) -> None:
         """
@@ -116,17 +114,16 @@ class BankAccount:
         # if the amount is a non-positive integer -
         if amount <= 0:
             raise ValueError("Deposit amount must be positive. Please try again.")
-        
+
         # adding the amount to account holder's account balance.
         self.balance += amount
 
-
     def withdraw(self, amount: float) -> None:
         """Withdraws money from the user's account.
+            Must be positive. Raises error if amount is invalid.
 
         Args:
             amount (float): The amount user wishes to withdraw from his account.
-                            Must be positive. Raises error if amount is invalid.
 
         Returns:
             None
@@ -175,5 +172,5 @@ class BankAccount:
 
 
 if __name__ == '__main__':
-        import doctest
-        doctest.testmod(verbose = True)
+    import doctest
+    doctest.testmod(verbose=True)
