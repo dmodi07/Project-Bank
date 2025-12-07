@@ -81,7 +81,7 @@
     "password": "S3cr3t_Account",
     "name": "Eduardo Perez",
     "account_number": "BE012",
-    "balance": 120000.0
+    "balance": 117500.0
   },
   "UnholyNun": {
     "username": "UnholyNun",
@@ -95,6 +95,13 @@
     "password": "Neu@2025",
     "name": "Dipen Modi",
     "account_number": "BE014",
+    "balance": 0.0
+  },
+  "NormanOsborn": {
+    "username": "NormanOsborn",
+    "password": "GreenVillain@123",
+    "name": "Green Goblin",
+    "account_number": "BE015",
     "balance": 0.0
   }
 }
