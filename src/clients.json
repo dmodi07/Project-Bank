@@ -8,13 +8,13 @@
   },
   "nefario": {
     "username": "nefario",
-    "password": "Fr33z3R@y",
+    "password": "FreezeR@y12",
     "name": "Joseph Nefario",
     "account_number": "BE002",
     "balance": 45000.0
   },
-  "stuartbovesbanana": {
-    "username": "stuartbovesbanana",
+  "stuartlovesbanana": {
+    "username": "stuartlovesbanana",
     "password": "99Banana!",
     "name": "Stuart D'Minion",
     "account_number": "BE003",
@@ -36,21 +36,21 @@
   },
   "richvic": {
     "username": "richvic",
-    "password": "Squ1d_L@uncher!",
+    "password": "Squ1d_Launcher!",
     "name": "Vector Perkins",
     "account_number": "BE006",
     "balance": 850000.0
   },
   "macho007": {
     "username": "macho007",
-    "password": "Ch1ck3n_P0w3r!",
+    "password": "Chick3n_Power!",
     "name": "El Macho",
     "account_number": "BE007",
     "balance": 400000.0
   },
   "scarletdonplay": {
     "username": "scarletdonplay",
-    "password": "Cr0wn_Leg@ci!",
+    "password": "Cr0wn_Legaci!",
     "name": "Scarlet Overkill",
     "account_number": "BE008",
     "balance": 750000.0
@@ -89,5 +89,12 @@
     "name": "Nun Chuck",
     "account_number": "BE013",
     "balance": 2500.0
+  },
+  "dmodi": {
+    "username": "dmodi",
+    "password": "Neu@2025",
+    "name": "Dipen Modi",
+    "account_number": "BE014",
+    "balance": 0.0
   }
 }

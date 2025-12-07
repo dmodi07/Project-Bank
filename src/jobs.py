@@ -186,7 +186,7 @@ def validate_password(password: str) -> bool:
     return True
 
 
-def generate_account_number(accounts):
+def generate_account_number(accounts: dict) -> str:
     """Generates the next sequential account number that represents the account.
         Finds the highest existing sequential account number in database,
         increments it by 1 and returns a new account number.
@@ -283,7 +283,7 @@ def create_new_account(username: str, password: str, name: str, accounts: dict) 
 
     Args:
         username (str): desired unique username.
-        password (str): password that must certain requirements.
+        password (str): password that must meet certain requirements.
         name (str): full name of account holder.
         accounts (dict): Dictionary of existing BankAccount objects.
 
@@ -327,4 +327,4 @@ def create_new_account(username: str, password: str, name: str, accounts: dict) 
 
 if __name__ == "__main__":
     import doctest
-    doctest.testmod(verbose=False)
+    doctest.testmod(verbose=True)

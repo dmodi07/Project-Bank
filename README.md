@@ -31,6 +31,24 @@ Each file serves a purpose. `jobs.py` is a python file containing all my helper 
 ## Installation Instructions
 If we wanted to run this project locally, what would we need to do?  If we need to get API key's include that information, and also command line startup commands to execute the project. If you have a lot of dependencies, you can also include a requirements.txt file, but make sure to include that we need to run `pip install -r requirements.txt` or something similar.
 
+1. Always navigate to the src directory, otherwise it won't be able to read client's database.
+    ```
+    cd src
+    ```
+2. Run the main program as usual:
+    ```
+    python3 main.py
+    ```
+
+### Test Accounts
+You can login with these test accounts:
+- Username: `stuartlovesbanana` | Password: `99Banana!`
+- Username: `grufru` | Password: `Moon2010!`
+- Username: `nefario` | Password: `FreezeR@y12`
+- Username: `dave` | Password: `laserb00m!`
+- Username: `maxlemal` | Password: `Cockroach_K1ng`
+- Username: `jeandbean` | Password: `C1aw_&_0rder!`
+
 
 ## Code Review
 Go over key aspects of code in this section. Both link to the file, include snippets in this report (make sure to use the [coding blocks](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code)).  Grading wise, we are looking for that you understand your code and what you did. 
@@ -67,8 +85,8 @@ I had an extraordinary time with this course. I think it really is designed to f
 ### TO DO
 ---
 [ ] Command line prompts \
-[ ] Docstring \
-[ ] Doctests \
+[x] Docstring \
+[x] Doctests \
 [ ] Testing file \
-[ ] Pycodestyle
+[x] Pycodestyle
 

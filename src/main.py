@@ -1,4 +1,12 @@
-# main.py
+"""
+Main Program file to run the Application
+===========================
+Course:   CS 5001
+Student:  Dipen Modi
+
+This file contains the main program to run the Bank of Evil Application.
+"""
+
 from jobs import (
     load_accounts, 
     save_accounts, 
@@ -6,6 +14,7 @@ from jobs import (
     create_new_account,
     validate_password
 )
+
 # CONSTANTS:
 MAX_LOGIN_ATTEMPTS = 3
 MAIN_MENU = """
@@ -53,59 +62,71 @@ EXIT_MESSAGE = """
 
 
 # verifying login details -
-def login(accounts):
-    "Lets customers access their accounts with the Bank of Evil."
+def login(accounts: dict):
+    """Lets customers access their accounts with the Bank of Evil.
+    Interactive menu for users to insert their username and password
+    in order to login to their respective account. Validates them.
+    In case of 3 incorrect attempts, returns the Main Menu.
+
+    Args:
+        accounts (dict): Dictionary of BankAccount objects loaded from database.
+
+    Returns:
+        BankAccount or None: Returns authenticated BankAccount object if successful. None, if the authentication fails.
+
+    (Doctest examples not possible as this function is interactive and requires user input. Function has been manually tested. See documentation for test screenshots).
+    """
+    # adding visuals for header -
     print("\n" + "=" * 32)
     print("LOGIN TO YOUR ACCOUNT".center(32))
     print("=" * 32)
-    
+
+    # to allow users to retry upto 3 times (MAX_LOGIN_ATTEMPTS) in case of authentication failure.
     for attempt in range(MAX_LOGIN_ATTEMPTS):
         try:
+            # getting credentials from user.
             username = input("Username: ").strip()
             password = input("Password: ").strip()
 
+            # in case of no input by user -
             if not username or not password:
                 print("\n Username and password cannot be empty.")
-                remaining = MAX_LOGIN_ATTEMPTS - attempt - 1
+                remaining = MAX_LOGIN_ATTEMPTS - attempt - 1        # only 3 tries allowed each time so keeping track of attempts.
                 if remaining > 0:
                     print(f"Attempts remaining: {remaining}")
                     continue
                 else:
                     print("Maximum login attempts reached! Returning to Main Menu.")
-                    print("Press Enter to continue...")
+                    input("Press Enter to continue...")
                     return None
             
+            # once the username and password is inserted, checking if it matches with that in our database -
             user_account = authenticate_user(username, password, accounts)
 
-            if user_account:
+            if user_account:        # in case of match, allowing account access.
                 print("\nLogin Successful!")
                 print(f"Welcome back, {user_account.name}!")
                 input("Press Enter to continue...")
                 return user_account
 
+            # if no match found, return error message and track attempt.
             else:
                 remaining = MAX_LOGIN_ATTEMPTS - attempt - 1
                 if remaining > 0:
                     print("\n Invalid username or password.")
                     print(f"Attempts remaining: {remaining}")
+                    input("Press Enter to continue...")
 
-                else:
+                else:       # return to Main Menu if no more attempts left.
                     print("\n Invalid username or password.")
                     print("Maximum login attempts reached. Returning to Main Menu.")
                     input("Press Enter to continue...")
                     return None
-    
-        except KeyboardInterrupt:
-            print("\n\n Login cancelled.")
-            input("Press Enter to continue...")
-            return None
 
         except Exception as e:
             print(f"\n Unexpected error during login: {e}")
             input("Press Enter to continue...")
             return None
-
-    return None
 
 
 def create_account(accounts):
@@ -273,6 +294,7 @@ def main():
         print("\n\n" + EXIT_MESSAGE)
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
+
+    
