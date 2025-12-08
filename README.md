@@ -56,8 +56,103 @@ You can login with these test accounts:
 ## Code Review
 Go over key aspects of code in this section. Both link to the file, include snippets in this report (make sure to use the [coding blocks](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code)).  Grading wise, we are looking for that you understand your code and what you did.
 
+```python
+def load_accounts() -> dict:
+    try:
+        with open('clients.json', 'r') as file:
+            data = json.load(file)
+        accounts = {}
+        for username, info in data.items():
+            account = BankAccount(
+                info["username"],
+                info["password"],
+                info["name"],
+                info["account_number"],
+                info["balance"])
+            accounts[username] = account
+        return accounts
+    except FileNotFoundError:
+        return {}
+```
+This was my favourite part of the project as I had to research a lot on how to get this to work for my project. Here, I use try/except block to open a json file that contains clients' data. If the program cannot find the file, it does not crash. Instead, it continues to record client's transactions on account by creating a new empty database. 
+```python
+    accounts = {}
+    for username, info in data.items():
+        account = BankAccount(
+            info["username"],
+            info["password"],
+            info["name"],
+            info["account_number"],
+            info["balance"])
+        accounts[username] = account
+    return accounts
+```
+If clients.json file is found by the program, then this part of my code creates a BankAccount object for each the clients in the database, and adds each object (key-value pair) to the empty dictionary `accounts`. Here is an example of the same -
+```python
+accounts = {}
+knuckles = BankAccount("knuckles", "Veg@sHeist_#12", "Wild Knuckles", "BE011", 180000.0)
+jean_bean = BankAccount("jeandbean", "C1aw_&_0rder!", "Jean Clawed", "BE010", 15000.0)
 
+accounts[knuckles.username] = knuckles
+accounts[jean_bean.username] = jean_bean
+print(accounts)
+```
+Output:
+```
+{'knuckles': <__main__.BankAccount object at 0x101141050>, 'jeandbean': <__main__.BankAccount object at 0x1011589b0>}
+```
 
+I also have a very interesting function that checks whether a password meets a certain security standard or not. This includes common requirements such as the password must contain at least 1 uppercase character, one lowercase character, one special character (!@#$ %^&*), one number and the password must have at least 6 characters. If these requirements are met, then the function returns a bool. I then use this to ensure the bank's clients create safer passwords which they will use to login to their account.
+
+I start by initializing my basic requirements with False. I loop over the characters in the password provided and if any one character meets either of the requirements, then they change that requirement's corresponding bool value to True. So if there is an uppercase character in the password, `has_upper = True`. But if the password does not contain any uppercase character, then it throws an error message, saying that Password must contain at least one uppercase letter. 
+```python   
+def validate_password(password: str) -> bool:
+    has_upper = False
+    has_lower = False
+    has_number = False
+    has_special = False
+
+    if len(password) < 6:
+        raise ValueError("Password must be at least 6 characters long.")
+    for char in password:
+        if char.isupper():
+            has_upper = True
+        if char.islower():
+            has_lower = True
+        if char.isnumeric():
+            has_number = True
+        if not char.isalnum():
+            has_special = True
+
+    if not has_upper:
+        raise ValueError("Password must contain at least one uppercase letter.")
+    if not has_special:
+        raise ValueError("Password must contain at least one special character")
+    if not has_number:
+        raise ValueError("Password must contain at least one number.")
+    if not has_lower:
+        raise ValueError("Password must contain at least one lowercase letter.")
+    return True
+```
+Additionally, the password must also be at least 6 characters long. Or else, the program will raise an error.
+```python
+if len(password) < 6:
+    raise ValueError("Password must be at least 6 characters long.")
+```
+
+Finally, I want to share the part that was very simple but took me some time as I wasn't taking any breaks and putting in long hours. So I decided to finally take a break and get some sleep. Next day, feeling fresh and focused, I was able to figure this out in a matter of minutes.
+```python
+def authenticate_user(username: str, password: str, accounts: dict):
+    if username in accounts:
+        user_account = accounts[username]
+        if user_account.password == password:
+            return user_account
+        else:
+            return None
+    else:
+        return None
+```
+Here, there are two parts. First, the function is checking whether or not the username exists in the dictionary of accouts. If it doesn't exist, then nothing is returned but if it does exist, then we do a second check - wheter or not the password matches with what's on file. If it matches, then the user can access their account. But if the password isn't an exact match, then nothing is returned. I do raise error messages but that is programed in a separate function.
 
 ### Major Challenges
 Key aspects could include pieces that your struggled on and/or pieces that you are proud of and want to show off.
