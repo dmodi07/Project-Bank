@@ -54,7 +54,7 @@ EXIT_MESSAGE = """
 +=================================================+
 |                                                 |
 |    Thank you for banking with BANK OF EVIL!     |
-|                  See you soon!                  |
+|               See you next time!                |
 |                                                 |
 +=================================================+
 """
@@ -88,7 +88,7 @@ def login(accounts: dict):
 
         # in case of no input by user -
         if not username or not password:
-            print("\n Username and password cannot be empty.")
+            print("\nUsername and password cannot be empty.")
             remaining = MAX_LOGIN_ATTEMPTS - attempt - 1        # only 3 tries allowed each time so keeping track of attempts.
 
             if remaining > 0:
@@ -113,12 +113,12 @@ def login(accounts: dict):
         else:
             remaining = MAX_LOGIN_ATTEMPTS - attempt - 1
             if remaining > 0:
-                print("\n Invalid username or password.")
+                print("\nInvalid username or password.")
                 print(f"Attempts remaining: {remaining}")
                 input("Press Enter to continue...")
 
             else:       # return to Main Menu if no more attempts left.
-                print("\n Invalid username or password.")
+                print("\nInvalid username or password.")
                 print("Maximum login attempts reached. Returning to Main Menu.")
                 input("Press Enter to continue...")
                 return None
@@ -139,27 +139,27 @@ def create_account(accounts: dict) -> None:
     (Doctest examples not possible as this function is interactive and requires user input. Function has been manually tested. See documentation for test screenshots).
     """
     # adding visuals for header -
-    print("\n" + "=" * 32)
-    print("CREATE NEW ACCOUNT".center(32))
-    print("=" * 32)
+    print("\n" + "=" * 38)
+    print("CREATE NEW ACCOUNT".center(38))
+    print("=" * 38)
 
     try:
         # name part
-        name = input("\n Full Name: ").strip()
+        name = input("Full Name: ").strip()
         if not name:
-            print("\n Name cannot be empty.")
+            print("\nName cannot be empty.")
             input("Press Enter to continue...")
             return
 
         # username part
         username = input("Choose Username: ").strip()
         if not username:
-            print("\n Username cannot be empty.")
+            print("\nUsername cannot be empty.")
             input("Press Enter to continue...")
             return
 
         if username in accounts:
-            print(f"\n Username '{username} is already taken. Try again!")
+            print(f"\nUsername '{username} is already taken. Try again!")
             input("Press Enter to continue...")
             return
 
@@ -168,7 +168,7 @@ def create_account(accounts: dict) -> None:
             password = input("Choose Password: ").strip()
 
             if not password:
-                print("\n Password cannot be empty. Please try again!\n")
+                print("\nPassword cannot be empty. Please try again!\n")
                 continue
 
             try:   # this is where it checks whether password is meets requirements or not.
@@ -176,7 +176,7 @@ def create_account(accounts: dict) -> None:
                 break
 
             except ValueError as e:
-                print(f"\n {e}")
+                print(f"\n{e}")
                 print("Please try again.\n")
 
         # finally creating account since everything is valid by calling function create_new_account.
@@ -184,9 +184,11 @@ def create_account(accounts: dict) -> None:
 
         # retrieving information of this new account to display message for feedback to user -
         new_account = accounts[username]
-        print(f"\n Account created successfully!")
+        print(f"Account created successfully!\n")
         print(f"Welcome to The Bank of Evil, {name}!")
         print(f"Your account number is: {new_account.account}")
+        print("Please sign in to access our services.")
+        print("-" * 38)
         input("Press Enter to continue...")
 
     except Exception as e:
@@ -252,19 +254,20 @@ def banking_menu(user_account, accounts: dict) -> None:
                 print("-" * 43)
 
             except (ValueError, TypeError) as e:
-                print(f"\nError: {e}. Please try again.")
+                print(f"\nInvalid entry! Please try again.")
 
             finally:
                 input("Press Enter to continue...")
 
         elif choice == 4:   # Exiting the program/logging out of account.
             print("\nThank you for banking with us!")
-            print("Logging out... \n")
+            print("Logging out...")
+            print("-" * 43)
             input("Press Enter to continue...")
             break
 
         else:
-            print("\n Invalid choice. Please enter a number between [1] and [4].")
+            print("\nInvalid choice. Please enter a number between [1] and [4].")
             input("Press Enter to continue...")
 
 
