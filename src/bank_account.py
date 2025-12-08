@@ -47,6 +47,41 @@ class BankAccount:
         self.account = account_number
         self.balance = float(account_balance)
 
+    def __str__(self):
+        """Function to print the instances/objects of the class BankAccount.
+
+        Returns:
+            str: Prints the object as string that shares all information about the customer of BoE.
+
+        Example:
+        >>> print(BankAccount("nefario", "FreezeR@y12", "Joseph Nefario", "BE002", 45000.0))
+        Username: nefario
+        Password: FreezeR@y12
+        Full name: Joseph Nefario
+        Account number: BE002
+        Account Balance: 45000.0
+
+        >>> print(BankAccount("stuartlovesbanana", "99Banana!", "Stuart D'Minion", "BE003", 9.0))
+        Username: stuartlovesbanana
+        Password: 99Banana!
+        Full name: Stuart D'Minion
+        Account number: BE003
+        Account Balance: 9.0
+
+        >>> print(BankAccount("macho007", "Chick3n_Power!", "El Macho", "BE007", 400000.0))
+        Username: macho007
+        Password: Chick3n_Power!
+        Full name: El Macho
+        Account number: BE007
+        Account Balance: 400000.0
+        """
+        output = "Username: " + self.username + "\n" \
+                 "Password: " + self.password + "\n" \
+                 "Full name: " + self.name + "\n" \
+                 "Account number: " + self.account + "\n" \
+                 "Account Balance: " + str(self.balance)
+        return output
+
     def check_balance(self) -> float:
         """Checks balance in user's bank account.
 
