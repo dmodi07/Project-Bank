@@ -25,25 +25,26 @@ class Test_BankAccount(unittest.TestCase):
         """
         # creating an account with zero balance.
         self.empty_account = BankAccount(
-            "testuser1",
-            "testpass",
-            "Test User",
-            "TEST001",
+            "NormanOsborn",
+            "GreenVillain@123",
+            "Green Goblin",
+            "BE015",
             0.0
         )
 
         # creating an account with some money
         self.funded_account = BankAccount(
-            "testuser2",
-            "testpass2",
-            "Rich User",
-            "TEST002",
-            1000.0
+            "jeandbean",
+            "C1aw_&_0rder!",
+            "Jean Clawed",
+            "BE010",
+            15000.0
         )
 
-    def test_something(self):
-        """Each test method tests ONE specific thing."""
-        pass
+    def test_check_balance(self):
+        """Checks the balance of user."""
+        self.assertEqual(empty_account.check_balance(), 0.0)
+        self.assertEqual(funded_account.check_balance(), 15000.0)
 
     # clean up if needed
     def tearDown(self):
