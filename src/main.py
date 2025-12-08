@@ -228,7 +228,6 @@ def banking_menu(user_account, accounts: dict) -> None:
             print(f"Current balance: ${user_account.check_balance():.2f}")
             input("Press Enter to continue...")
 
-
         elif choice == 2:   # deposits money to account.
             try:
                 print("-" * 43)
@@ -311,6 +310,7 @@ def main() -> None:
         else:
             print("\nInvalid choice! Please enter (1-3).")
             input("Press Enter to continue...")
+
 
 if __name__ == "__main__":
     main()
