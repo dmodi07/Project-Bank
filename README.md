@@ -56,6 +56,9 @@ You can login with these test accounts:
 ## Code Review
 Go over key aspects of code in this section. Both link to the file, include snippets in this report (make sure to use the [coding blocks](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code)).  Grading wise, we are looking for that you understand your code and what you did.
 
+
+
+
 ### Major Challenges
 Key aspects could include pieces that your struggled on and/or pieces that you are proud of and want to show off.
 
@@ -67,15 +70,48 @@ Explain how you documented running the project, and what we need to look for in 
 
 Most of my documentation, trial and errors I did on Jupyter Notebooks. Initally, only if it worked on .ipynb did I put it on my main/jobs/bank_account files. But then as time came to load database and save to database, that became difficult and I wasn't sure how to navigate. So I just stuck to .py file. 
 
-Link: [Outlook OneDrive](https://tinyurl.com/4dnf7hss)
+Link to the Video: [Outlook OneDrive](https://tinyurl.com/4dnf7hss)
+
+How I run it:
+```
+>>> cd src
+>>> python3 main.py
+```
+Here are some photos for reference. You can run the Main as you like but if you follow the steps below, then you can enjoy the entire functionality of my program:
+
+Step 1. Launching the Program, you get this Main Menu at start: \
+<img src="./images/ProgramStart.jpg" alt="Launching the Program" width="400">
+
+Step 2. Insert the right credentials to log in into an account that exists in clients.json database: \
+<img src="./images/InsertCredentials.jpg" alt="Logging in" width="250">
+
+Step 3. Once logged in, you have to choose what you want to do. You can choose to make a transaction such as a deposit or a withdrawal or you can choose to just check your balance. \
+<img src="./images/LoggedIn.jpg" alt="Successfully Logged in" width="300">
+
+Step 4. If you choose to check balance in the account: \
+<img src="./images/CheckBalance.jpg" alt="Checking Balance" width="220">
+
+Step 5. If you choose to make a deposit into the account: \
+<img src="./images/Deposit.jpg" alt="Making a deposit" width="500">
+
+Step 6. If you choose to make a withdrawal from the account: \
+<img src="./images/Withdraw.jpg" alt="Withdrawing money" width="500">
+
+Step 7. After all the testing, you can log out of the account that you are in and maybe try logging into another user's account later. When you log out, you go back to the Main Menu: \
+<img src="./images/LoggingOut.jpg" alt="Logging out" width="300">
+
+Step 8. From the Main Menu, you can also create a new account by choosing option 2: \
+<img src="./images/CreatingNew.jpg" alt="Creating new account" width="350">
+
+Step 9. Finally, you can exit the application by choosing 3: \
+<img src="./images/Exiting.jpg" alt="Exiting Application" width="400">
 
 ## Testing
 How did you test your code? What did you do to make sure your code was correct? If you wrote unit tests, you can link to them here. If you did run tests, make sure you document them as text files, and include them in your submission. 
 
-I have done both, doctests and unittests for almost all my functions, except for a couple that involved user_input. 
-
 > _Make it easy for us to know you *ran the project* and *tested the project* before you submitted this report!_
 
+I have done both, doctests and unittests for almost all my functions, except for a couple that involved user_input. I have attached the test.py file under the Testing folder.
 
 ## Missing Features / What's Next
 Focus on what you didn't get to do, and what you would do if you had more time, or things you would implement in the future. 
