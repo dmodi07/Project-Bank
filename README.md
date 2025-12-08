@@ -20,12 +20,14 @@ My project is based on the Bank of Evil, inspired from the movie Despicable Me, 
 ## Guide
 How do we run your project? What should we do to see it in action? - Note this isn't installing, this is actual use of the project.. If it is a website, you can point towards the gui, use screenshots, etc talking about features. 
 
-My project comprises of 4 files, namely -
+My project comprises of 5 files, namely -
 1. main.py
 2. jobs.py
 3. bank_account.py
 4. clients.json
-Each file serves a purpose. `jobs.py` is a python file containing all my helper functions. `bank_account.py` contains a class of different banking transaction-actions, for making a deposit, making a withdrawal or checking account balance. `clients.json` is my database of clients, their user_ids, passwords, names, account numbers and account balance. Needless to say, `main.py` is my main file that ties it all together to make Bank of Evil operable and satisfy my fellow despicable clients, including the cute little minions.
+5. test.py
+
+Each file serves a purpose. `jobs.py` is a python file containing all my helper functions. `bank_account.py` contains a class of different banking transaction-actions, for making a deposit, making a withdrawal or checking account balance. `clients.json` is my database of clients, their user_ids, passwords, names, account numbers and account balance. Needless to say, `main.py` is my main file that ties it all together to make Bank of Evil operable and satisfy my fellow despicable clients, including the cute little minions. Lastly, `test.py` tests all my functions to ensure no errors are left behind.
 
 
 ## Installation Instructions
@@ -48,10 +50,11 @@ You can login with these test accounts:
 - Username: `dave` | Password: `laserb00m!`
 - Username: `maxlemal` | Password: `Cockroach_K1ng`
 - Username: `jeandbean` | Password: `C1aw_&_0rder!`
+- To view more, please check clients.json file.
 
 
 ## Code Review
-Go over key aspects of code in this section. Both link to the file, include snippets in this report (make sure to use the [coding blocks](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code)).  Grading wise, we are looking for that you understand your code and what you did. 
+Go over key aspects of code in this section. Both link to the file, include snippets in this report (make sure to use the [coding blocks](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code)).  Grading wise, we are looking for that you understand your code and what you did.
 
 ### Major Challenges
 Key aspects could include pieces that your struggled on and/or pieces that you are proud of and want to show off.
@@ -62,12 +65,12 @@ I am very proud of everything to be honest. I never knew I could get this far al
 ## Example Runs
 Explain how you documented running the project, and what we need to look for in your repository (text output from the project, small videos, links to videos on youtube of you running it, etc)
 
-Most of my documentation, trial and errors I did on Jupyter Notebooks. Only if it worked on ipynb did I put it on my main/jobs/bank_account files. I will include it with this project for your reference.
+Most of my documentation, trial and errors I did on Jupyter Notebooks. Initally, only if it worked on .ipynb did I put it on my main/jobs/bank_account files. But then as time came to load database and save to database, that became difficult and I wasn't sure how to navigate. So I just stuck to .py file. 
 
 ## Testing
 How did you test your code? What did you do to make sure your code was correct? If you wrote unit tests, you can link to them here. If you did run tests, make sure you document them as text files, and include them in your submission. 
 
-Almost every code that I wrote, I tested it on jupyter notebook to ensure it was correct. Only once I was sure that it works did I include it in my project files.
+I have done both, doctests and unittests for almost all my functions, except for a couple that involved user_input. 
 
 > _Make it easy for us to know you *ran the project* and *tested the project* before you submitted this report!_
 
@@ -75,18 +78,17 @@ Almost every code that I wrote, I tested it on jupyter notebook to ensure it was
 ## Missing Features / What's Next
 Focus on what you didn't get to do, and what you would do if you had more time, or things you would implement in the future. 
 
-There are far too many things I had to leave out due to limited time. This includes the things shared above such as an option to open three different accounts - chequing, savings and investment, an option to invest in different investment options, variable return stocks that are risky, fixed interest stock that is more stable, an option to take a loan at some interest rate. In addition, I wanted to include tools such as a simple calculator, mortgage calculator, credit score, and so on.
+There are far too many things I had to leave out due to limited time. This includes the things shared above such as an option to open three different accounts - chequing, savings and investment, an option to invest in different investment options, variable return stocks that are risky, fixed interest stock that is more stable, an option to take a loan at some interest rate. In addition, I wanted to include tools such as a simple calculator, mortgage calculator, credit score, command line prompting and so on.
 
 ## Final Reflection
 Write at least a paragraph about your experience in this course. What did you learn? What do you need to do to learn more? Key takeaways? etc.
 
 I had an extraordinary time with this course. I think it really is designed to force everyone to win without them even realizing it. The amount of activities are perfectly balanced and scattered almost like Boom Beach, a strategy game by Supercell that I used to play back in the day. There is much to discover and each time I sit down with this course, each time I learn something new! That's the best part of it really. I love how some tips are shared in annoucements, some are shared through team activities, some through the homework assignments and some through the report and readme files. It's sooooo coooooool how professor has come up with this and put this all together. When I become a teacher, I will have big shoes to fill, and this project in a way gave me the right exposure to so much more than just python coding curriculum. I think I will be able to do a great job, all thanks to this course. 
 
-### TO DO
+### Done
 ---
-[ ] Command line prompts \
 [x] Docstring \
 [x] Doctests \
-[ ] Testing file \
+[x] Testing file \
 [x] Pycodestyle
 
