@@ -222,28 +222,34 @@ def banking_menu(user_account, accounts: dict) -> None:
             continue
 
         if choice == 1:     # checks balance in account.
+            print("-" * 43)
             print(f"Current balance: ${user_account.check_balance():.2f}")
-            input("\nPress Enter to continue...")
+            input("Press Enter to continue...")
+
 
         elif choice == 2:   # deposits money to account.
             try:
+                print("-" * 43)
                 amount = float(input("Enter deposit amount: $"))
                 user_account.deposit(amount)    # calling deposit method from BankAccount class.
                 save_accounts(accounts)         # saving transaction to database.
-                print(f"\n${amount:,.2f} deposited successfully! Current balance: ${user_account.check_balance():.2f}")
+                print(f"\n${amount:,.2f} deposited successfully!\nCurrent balance: ${user_account.check_balance():.2f}")
+                print("-" * 43)
 
             except (ValueError, TypeError) as e:
                 print(f"\nError: {e}. Please try again.")
 
             finally:
-                input("Press Enter to continue...")
+                input("Press Enter to continue...\n")
 
         elif choice == 3:   # withdraw money from account.
             try:
-                amount = float(input("\nEnter your withdrawal amount: $"))
+                print("-" * 43)
+                amount = float(input("Enter your withdrawal amount: $"))
                 user_account.withdraw(amount)    # calling withdraw method from BankAccount class.
                 save_accounts(accounts)          # saving transaction to database.
-                print(f"\n${amount:,.2f} withdrawn successfully. Remaining balance: ${user_account.check_balance():.2f}")
+                print(f"\n${amount:,.2f} withdrawn successfully.\nRemaining balance: ${user_account.check_balance():.2f}")
+                print("-" * 43)
 
             except (ValueError, TypeError) as e:
                 print(f"\nError: {e}. Please try again.")
@@ -252,7 +258,7 @@ def banking_menu(user_account, accounts: dict) -> None:
                 input("Press Enter to continue...")
 
         elif choice == 4:   # Exiting the program/logging out of account.
-            print("\n Thank you for banking with us!")
+            print("\nThank you for banking with us!")
             print("Logging out... \n")
             input("Press Enter to continue...")
             break

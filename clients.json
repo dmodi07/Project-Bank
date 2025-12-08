@@ -95,13 +95,20 @@
     "password": "Neu@2025",
     "name": "Dipen Modi",
     "account_number": "BE014",
-    "balance": 0.0
+    "balance": 50000.0
   },
   "NormanOsborn": {
     "username": "NormanOsborn",
     "password": "GreenVillain@123",
     "name": "Green Goblin",
     "account_number": "BE015",
+    "balance": 0.0
+  },
+  "BadBoy": {
+    "username": "BadBoy",
+    "password": "IamPompeux@73",
+    "name": "Balthazar Bratt",
+    "account_number": "BE016",
     "balance": 0.0
   }
 }
