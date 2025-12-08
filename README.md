@@ -67,6 +67,8 @@ Explain how you documented running the project, and what we need to look for in 
 
 Most of my documentation, trial and errors I did on Jupyter Notebooks. Initally, only if it worked on .ipynb did I put it on my main/jobs/bank_account files. But then as time came to load database and save to database, that became difficult and I wasn't sure how to navigate. So I just stuck to .py file. 
 
+Link: [Outlook OneDrive](https://tinyurl.com/4dnf7hss)
+
 ## Testing
 How did you test your code? What did you do to make sure your code was correct? If you wrote unit tests, you can link to them here. If you did run tests, make sure you document them as text files, and include them in your submission. 
 

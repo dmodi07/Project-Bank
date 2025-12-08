@@ -4,7 +4,7 @@
     "password": "Moon2010!",
     "name": "Felonious Gru",
     "account_number": "BE001",
-    "balance": 250000.0
+    "balance": 350000.0
   },
   "nefario": {
     "username": "nefario",
@@ -110,5 +110,12 @@
     "name": "Balthazar Bratt",
     "account_number": "BE016",
     "balance": 0.0
+  },
+  "donald": {
+    "username": "donald",
+    "password": "Trump@123",
+    "name": "Donald Trump",
+    "account_number": "BE017",
+    "balance": 1000.0
   }
 }
