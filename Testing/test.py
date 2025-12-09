@@ -8,15 +8,15 @@ This file contains unittests for all functions.
 """
 import sys
 import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
-# Add the src folder to Python's path
-# sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 import unittest
 from bank_account import BankAccount
 from jobs import (
                 validate_password,
                 generate_account_number,
                 authenticate_user)
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+# Add the src folder to Python's path
+# sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
 
 class TestBankAccount(unittest.TestCase):
