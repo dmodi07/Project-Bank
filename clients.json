@@ -95,7 +95,7 @@
     "password": "Neu@2025",
     "name": "Dipen Modi",
     "account_number": "BE014",
-    "balance": 50000.0
+    "balance": 42500.0
   },
   "NormanOsborn": {
     "username": "MrScientist",
@@ -117,5 +117,12 @@
     "name": "Donald Trump",
     "account_number": "BE017",
     "balance": 1000.0
+  },
+  "test_user": {
+    "username": "test_user",
+    "password": "Pass@123",
+    "name": "Test User",
+    "account_number": "BE018",
+    "balance": 50.0
   }
 }
