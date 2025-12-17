@@ -1,0 +1,352 @@
+Trying:
+    acc1 = BankAccount("mary_j", "Spidey@123", "Mary Jane", "BE055", 12000)
+Expecting nothing
+ok
+Trying:
+    accounts = {"mary_j": acc1}
+Expecting nothing
+ok
+Trying:
+    login = authenticate_user("mary_j", "Spidey@123", accounts)
+Expecting nothing
+ok
+Trying:
+    login is None
+Expecting:
+    False
+ok
+Trying:
+    login = authenticate_user("Octopus", "Doctor Octopus", accounts)
+Expecting nothing
+ok
+Trying:
+    login is None
+Expecting:
+    True
+ok
+Trying:
+    test_acc = BankAccount("existing", "Pass@1", "Existing User", "BE001", 0)
+Expecting nothing
+ok
+Trying:
+    test_accounts = {"existing": test_acc}
+Expecting nothing
+ok
+Trying:
+    create_new_account("existing", "NewPass@123", "New User", test_accounts)
+Expecting:
+    False
+ok
+Trying:
+    create_new_account("newuser", "weak_password", "New User", test_accounts)
+Expecting:
+    False
+ok
+Trying:
+    "newuser" not in test_accounts
+Expecting:
+    True
+ok
+Trying:
+    acc1 = BankAccount("ChillBill", "Bill@123", "Bill Gates", "BE001", 0)
+Expecting nothing
+ok
+Trying:
+    test_accounts = {"ChillBill": acc1}
+Expecting nothing
+ok
+Trying:
+    generate_account_number(test_accounts)
+Expecting:
+    'BE002'
+ok
+Trying:
+    acc2 = BankAccount("CookTim", "Tim@123", "Tim Cook", "BE002", 0)
+Expecting nothing
+ok
+Trying:
+    test_accounts = {"ChillBill": acc1, "CookTim": acc2}
+Expecting nothing
+ok
+Trying:
+    generate_account_number(test_accounts)
+Expecting:
+    'BE003'
+ok
+Trying:
+    acc3 = BankAccount("Adam", "Smith@123", "Adam Smith", "BE005", 0)
+Expecting nothing
+ok
+Trying:
+    test_accounts = {"ChillBill": acc1, "CookTim": acc2, "Adam": acc3}
+Expecting nothing
+ok
+Trying:
+    generate_account_number(test_accounts)
+Expecting:
+    'BE006'
+ok
+Trying:
+    acc4 = BankAccount("Stuart", "Little@123", "Stuart Little", "BE009", 0)
+Expecting nothing
+ok
+Trying:
+    test_accounts = {"ChillBill": acc1, "CookTim": acc2, "Adam": acc3, "Stuart": acc4}
+Expecting nothing
+ok
+Trying:
+    generate_account_number(test_accounts)
+Expecting:
+    'BE010'
+ok
+Trying:
+    accounts = load_accounts()
+Expecting nothing
+ok
+Trying:
+    isinstance(accounts, dict)
+Expecting:
+    True
+ok
+Trying:
+    validate_password("Pass@123")
+Expecting:
+    True
+ok
+Trying:
+    validate_password("Hi@12")
+Expecting:
+    Traceback (most recent call last):
+        ...
+    ValueError: Password must be at least 6 characters long.
+ok
+Trying:
+    validate_password("0123456")
+Expecting:
+    Traceback (most recent call last):
+        ...
+    ValueError: Password must contain at least one uppercase letter.
+ok
+Trying:
+    validate_password("lower_123")
+Expecting:
+    Traceback (most recent call last):
+        ...
+    ValueError: Password must contain at least one uppercase letter.
+ok
+Trying:
+    validate_password("UPPER_123")
+Expecting:
+    Traceback (most recent call last):
+        ...
+    ValueError: Password must contain at least one lowercase letter.
+ok
+Trying:
+    validate_password("Hoo-man")
+Expecting:
+    Traceback (most recent call last):
+        ...
+    ValueError: Password must contain at least one number.
+ok
+Trying:
+    validate_password("BigHero6")
+Expecting:
+    Traceback (most recent call last):
+        ...
+    ValueError: Password must contain at least one special character (!@#$%^&*, etc.)
+ok
+2 items had no tests:
+    jobs
+    jobs.save_accounts
+5 items passed all tests:
+   6 tests in jobs.authenticate_user
+   5 tests in jobs.create_new_account
+  12 tests in jobs.generate_account_number
+   2 tests in jobs.load_accounts
+   7 tests in jobs.validate_password
+32 tests in 7 items.
+32 passed.
+Test passed.
+Trying:
+    account = BankAccount("user_name", "Password", "Full Name", "BE100", 0.0)
+Expecting nothing
+ok
+Trying:
+    account.balance
+Expecting:
+    0.0
+ok
+Trying:
+    account.name
+Expecting:
+    'Full Name'
+ok
+Trying:
+    account.password
+Expecting:
+    'Password'
+ok
+Trying:
+    account.username
+Expecting:
+    'user_name'
+ok
+Trying:
+    account.account
+Expecting:
+    'BE100'
+ok
+Trying:
+    print(BankAccount("nefario", "FreezeR@y12", "Joseph Nefario", "BE002", 45000.0))
+Expecting:
+    Username: nefario
+    Password: FreezeR@y12
+    Full name: Joseph Nefario
+    Account number: BE002
+    Account Balance: 45000.0
+ok
+Trying:
+    print(BankAccount("stuartlovesbanana", "99Banana!", "Stuart D'Minion", "BE003", 9.0))
+Expecting:
+    Username: stuartlovesbanana
+    Password: 99Banana!
+    Full name: Stuart D'Minion
+    Account number: BE003
+    Account Balance: 9.0
+ok
+Trying:
+    print(BankAccount("macho007", "Chick3n_Power!", "El Macho", "BE007", 400000.0))
+Expecting:
+    Username: macho007
+    Password: Chick3n_Power!
+    Full name: El Macho
+    Account number: BE007
+    Account Balance: 400000.0
+ok
+Trying:
+    account_1 = BankAccount("JC99", "U_kant_C_Me", "John Cena", "BE099", 0)
+Expecting nothing
+ok
+Trying:
+    account_2 = BankAccount("RayM", "RM_moon12", "Ray Mysterio", "BE100", 100)
+Expecting nothing
+ok
+Trying:
+    account_1.check_balance()
+Expecting:
+    0.0
+ok
+Trying:
+    account_2.check_balance()
+Expecting:
+    100.0
+ok
+Trying:
+    account = BankAccount("JC99", "U_kant_C_Me", "John Cena", "BE099", 500000)
+Expecting nothing
+ok
+Trying:
+    account.deposit(250000)
+Expecting nothing
+ok
+Trying:
+    account.balance
+Expecting:
+    750000.0
+ok
+Trying:
+    account.deposit(0)
+Expecting:
+    Traceback (most recent call last):
+        ...
+    ValueError: Deposit amount must be positive. Please try again.
+ok
+Trying:
+    account.deposit(-100)
+Expecting:
+    Traceback (most recent call last):
+        ...
+    ValueError: Deposit amount must be positive. Please try again.
+ok
+Trying:
+    account.deposit(1)
+Expecting nothing
+ok
+Trying:
+    account.balance
+Expecting:
+    750001.0
+ok
+Trying:
+    account.deposit("Hakuna Matata")
+Expecting:
+    Traceback (most recent call last):
+        ...
+    TypeError: Deposit amount must be a number. Please try again.
+ok
+Trying:
+    account.deposit(250000)
+Expecting nothing
+ok
+Trying:
+    account.balance
+Expecting:
+    1000001.0
+ok
+Trying:
+    account_1 = BankAccount("JC99", "U_kant_C_Me", "John Cena", "BE099", 500000)
+Expecting nothing
+ok
+Trying:
+    account_2 = BankAccount("RayM", "RM_moon12", "Ray Mysterio", "BE100", 100)
+Expecting nothing
+ok
+Trying:
+    account_1.withdraw(250000)
+Expecting nothing
+ok
+Trying:
+    account_1.balance
+Expecting:
+    250000.0
+ok
+Trying:
+    account_2.withdraw(0)
+Expecting:
+    Traceback (most recent call last):
+        ...
+    ValueError: Withdrawal amount must be positive. Please try again.
+ok
+Trying:
+    account_1.withdraw(-10000)
+Expecting:
+    Traceback (most recent call last):
+        ...
+    ValueError: Withdrawal amount must be positive. Please try again.
+ok
+Trying:
+    account_1.withdraw("Hakuna Matata")
+Expecting:
+    Traceback (most recent call last):
+        ...
+    TypeError: Withdrawal amount must be a number. Please try again.
+ok
+Trying:
+    account_2.withdraw(1000)
+Expecting:
+    Traceback (most recent call last):
+        ...
+    ValueError: Insufficient funds. Balance: $100.00, Attempted withdrawal: $1000.00
+ok
+2 items had no tests:
+    bank_account
+    bank_account.BankAccount.__init__
+5 items passed all tests:
+   6 tests in bank_account.BankAccount
+   3 tests in bank_account.BankAccount.__str__
+   4 tests in bank_account.BankAccount.check_balance
+  10 tests in bank_account.BankAccount.deposit
+   8 tests in bank_account.BankAccount.withdraw
+31 tests in 7 items.
+31 passed.
+Test passed.
