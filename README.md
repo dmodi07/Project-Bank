@@ -1,25 +1,11 @@
-# Final Project Report
-
-* Student Name: Dipen Modi
-* Github Username: dmodi07
-* Semester: Fall 2025
-* Course: CS-5001
-
-
-
-## Description 
-General overview of the project, what you did, why you did it, etc. 
+# Bank of Evil, Despicable Me.
 
 My project was inspired by my visit to the ATM when I looked at the screen. For my project, I really wanted to create something more, like a banking app, with multiple features such as an option to make a deposit, or withdraw money or check balance in account. I also wanted to include the option to have 3 bank accounts - chequing account, savings account and an investment account with options to invest money in fixed interest bonds, and other risky growth investments. 
 
 ## Key Features
-Highlight some key features of this project that you want to show off/talk about/focus on. 
-
 My project is based on the Bank of Evil, inspired from the movie Despicable Me, boasting some of the baddest villains of all time as loyal customers. Albeit, no matter how bad the villain is, he just cannot get past my (soon to be encrypted) user-authentication system. So each villain (oops, customer!) can only access their own account with their user id and password. If the user does not have an account with the Bank of Evil, the user can choose to either make an account or exit. Each new customer gets a unique account number representing their chequing account. Bank of Evil values their loyal customers and takes their data security extremely seriously. All data is securely stored in a secret JSON database (encryption coming soon!). Once logged in, our clients can check their balance, add more money or make a withdrawal.
 
 ## Guide
-How do we run your project? What should we do to see it in action? - Note this isn't installing, this is actual use of the project.. If it is a website, you can point towards the gui, use screenshots, etc talking about features. 
-
 My project comprises of 5 files, namely -
 1. main.py
 2. jobs.py
@@ -31,8 +17,6 @@ Each file serves a purpose. `jobs.py` is a python file containing all my helper 
 
 
 ## Installation Instructions
-If we wanted to run this project locally, what would we need to do?  If we need to get API key's include that information, and also command line startup commands to execute the project. If you have a lot of dependencies, you can also include a requirements.txt file, but make sure to include that we need to run `pip install -r requirements.txt` or something similar.
-
 1. Always navigate to the src directory, otherwise it won't be able to read client's database.
     ```
     cd src
@@ -54,8 +38,6 @@ You can login with these test accounts:
 
 
 ## Code Review
-Go over key aspects of code in this section. Both link to the file, include snippets in this report (make sure to use the [coding blocks](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code)).  Grading wise, we are looking for that you understand your code and what you did.
-
 ```python
 def load_accounts() -> dict:
     try:
@@ -105,6 +87,7 @@ Output:
 I also have a very interesting function that checks whether a password meets a certain security standard or not. This includes common requirements such as the password must contain at least 1 uppercase character, one lowercase character, one special character (!@#$ %^&*), one number and the password must have at least 6 characters. If these requirements are met, then the function returns a bool. I then use this to ensure the bank's clients create safer passwords which they will use to login to their account.
 
 I start by initializing my basic requirements with False. I loop over the characters in the password provided and if any one character meets either of the requirements, then they change that requirement's corresponding bool value to True. So if there is an uppercase character in the password, `has_upper = True`. But if the password does not contain any uppercase character, then it throws an error message, saying that Password must contain at least one uppercase letter. 
+
 ```python   
 def validate_password(password: str) -> bool:
     has_upper = False
@@ -135,12 +118,14 @@ def validate_password(password: str) -> bool:
     return True
 ```
 Additionally, the password must also be at least 6 characters long. Or else, the program will raise an error.
+
 ```python
 if len(password) < 6:
     raise ValueError("Password must be at least 6 characters long.")
 ```
 
 Finally, I want to share the part that was very simple but took me some time as I wasn't taking any breaks and putting in long hours. So I decided to finally take a break and get some sleep. Next day, feeling fresh and focused, I was able to figure this out in a matter of minutes.
+
 ```python
 def authenticate_user(username: str, password: str, accounts: dict):
     if username in accounts:
@@ -152,76 +137,73 @@ def authenticate_user(username: str, password: str, accounts: dict):
     else:
         return None
 ```
+
 Here, there are two parts. First, the function is checking whether or not the username exists in the dictionary of accouts. If it doesn't exist, then nothing is returned but if it does exist, then we do a second check - wheter or not the password matches with what's on file. If it matches, then the user can access their account. But if the password isn't an exact match, then nothing is returned. I do raise error messages but that is programed in a separate function.
 
 ### Major Challenges
-Key aspects could include pieces that your struggled on and/or pieces that you are proud of and want to show off.
-
 I am very proud of everything to be honest. I never knew I could get this far already. One aspect that gave me a very difficult time was Classes and Objects. I spent a lot of time trying to understand how that works. In addition, navigating through with nested dictionary was both simple and very hard. I still feel like there is so much I am missing and so much more that I want to add to this. Oh and also, I had a lot of difficulty with trying to create a new account number for my new clients, since I have to find the most recent sequential id which is a string in a dictionary value, find it, split it, convert it to int() and then add +1, then convert it back to string and concatenate it with the starting part of the account number. For instance, if my last new customer got account number BE015, then the next new customer who makes an account would get BE016. This turned out to be harder than I had expected. My purpose for making this was to ensure each customer can have three account types - Chequing, Savings and Investment accounts, each with their unique identifier account number. But I must leave this portion for future due to limited time.
 
 
 ## Example Runs
-Explain how you documented running the project, and what we need to look for in your repository (text output from the project, small videos, links to videos on youtube of you running it, etc)
-
-Most of my documentation, trial and errors I did on Jupyter Notebooks. Initally, only if it worked on .ipynb did I put it on my main/jobs/bank_account files. But then as time came to load database and save to database, that became difficult and I wasn't sure how to navigate. So I just stuck to .py file. 
-
-Link to the Video: [Outlook OneDrive](https://tinyurl.com/4dnf7hss)
+Link to Tutorial: [Outlook OneDrive](https://tinyurl.com/4dnf7hss)
 
 How I run it:
 ```
 >>> cd src
 >>> python3 main.py
 ```
+
 Here are some photos for reference. You can run the Main as you like but if you follow the steps below, then you can enjoy the entire functionality of my program:
 
-Step 1. Launching the Program, you get this Main Menu at start: \
+Step 1. Launching the Program, you get this Main Menu at start:
+
 <img src="./images/ProgramStart.jpg" alt="Launching the Program" width="400">
 
-Step 2. Insert the right credentials to log in into an account that exists in clients.json database: \
+Step 2. Insert the right credentials to log in into an account that exists in clients.json database: 
+
 <img src="./images/InsertCredentials.jpg" alt="Logging in" width="250">
 
-Step 3. Once logged in, you have to choose what you want to do. You can choose to make a transaction such as a deposit or a withdrawal or you can choose to just check your balance. \
+Step 3. Once logged in, you have to choose what you want to do. You can choose to make a transaction such as a deposit or a withdrawal or you can choose to just check your balance. 
+
 <img src="./images/LoggedIn.jpg" alt="Successfully Logged in" width="300">
 
-Step 4. If you choose to check balance in the account: \
+Step 4. If you choose to check balance in the account: 
+
 <img src="./images/CheckBalance.jpg" alt="Checking Balance" width="220">
 
-Step 5. If you choose to make a deposit into the account: \
+Step 5. If you choose to make a deposit into the account: 
+
 <img src="./images/Deposit.jpg" alt="Making a deposit" width="500">
 
-Step 6. If you choose to make a withdrawal from the account: \
+Step 6. If you choose to make a withdrawal from the account: 
+
 <img src="./images/Withdraw.jpg" alt="Withdrawing money" width="500">
 
-Step 7. After all the testing, you can log out of the account that you are in and maybe try logging into another user's account later. When you log out, you go back to the Main Menu: \
+Step 7. After all the testing, you can log out of the account that you are in and maybe try logging into another user's account later. When you log out, you go back to the Main Menu: 
+
 <img src="./images/LoggingOut.jpg" alt="Logging out" width="300">
 
-Step 8. From the Main Menu, you can also create a new account by choosing option 2: \
+Step 8. From the Main Menu, you can also create a new account by choosing option 2: 
+
 <img src="./images/CreatingNew.jpg" alt="Creating new account" width="350">
 
-Step 9. Finally, you can exit the application by choosing 3: \
+Step 9. Finally, you can exit the application by choosing 3: 
+
 <img src="./images/Exiting.jpg" alt="Exiting Application" width="400">
 
 ## Testing
-How did you test your code? What did you do to make sure your code was correct? If you wrote unit tests, you can link to them here. If you did run tests, make sure you document them as text files, and include them in your submission. 
-
-> _Make it easy for us to know you *ran the project* and *tested the project* before you submitted this report!_
-
 I have done both, doctests and unittests for almost all my functions, except for a couple that involved user_input. I have attached the test.py file under the Testing folder.
 
 ## Missing Features / What's Next
-Focus on what you didn't get to do, and what you would do if you had more time, or things you would implement in the future. 
-
 There are far too many things I had to leave out due to limited time. This includes the things shared above such as an option to open three different accounts - chequing, savings and investment, an option to invest in different investment options, variable return stocks that are risky, fixed interest stock that is more stable, an option to take a loan at some interest rate. In addition, I wanted to include tools such as a simple calculator, mortgage calculator, credit score, command line prompting and so on.
 
 ## Final Reflection
-Write at least a paragraph about your experience in this course. What did you learn? What do you need to do to learn more? Key takeaways? etc.
+I had an extraordinary time with this project. The amount of functionalities that can be added further is exhilarating and something I am looking forward towards. There is much to discover and each time I sit down with this project, each time I learn something new and add something new! That's the best part of it really. 
 
-I had an extraordinary time with this course. I think it really is designed to force everyone to win without them even realizing it. The amount of activities are perfectly balanced and scattered almost like Boom Beach, a strategy game by Supercell that I used to play back in the day. There is much to discover and each time I sit down with this course, each time I learn something new! That's the best part of it really. I love how some tips are shared in annoucements, some are shared through team activities, some through the homework assignments and some through the report and readme files. It's sooooo coooooool how professor has come up with this and put this all together. When I become a teacher, I will have big shoes to fill, and this project in a way gave me the right exposure to so much more than just python coding curriculum. I think I will be able to do a great job, all thanks to this course. 
-
-### Done
+### Tasks
 ---
-[x] Docstring \
-[x] Doctests \
-[x] Testing file \
-[x] Pycodestyle
-
+- [x] Docstring
+- [x] Doctests
+- [x] Testing file
+- [x] Pycodestyle
+- [ ] Command line prompts for user's ease.
